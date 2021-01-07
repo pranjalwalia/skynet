@@ -1,0 +1,22 @@
+{
+  "name": "skynet",
+  "version": "1.0.0",
+  "description": "A simple cloud store",
+  "main": "main.ts",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masterchief01/skynet.git"
+  },
+  "author": "Pranjal Walia <pranjalwalia77@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/masterchief01/skynet/issues"
+  },
+  "homepage": "https://github.com/masterchief01/skynet#readme",
+  "dependencies": {
+    "typescript": "^4.1.3"
+  }
+}
