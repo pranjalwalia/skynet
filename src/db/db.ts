@@ -1,10 +1,15 @@
-import dotenv from 'dotenv';
+/* eslint-disable operator-linebreak */
 import mongoose from 'mongoose';
 
-dotenv.config();
+require('dotenv').config();
+
+const DB_URI =
+    process.env.NODE_ENV === 'production'
+        ? process.env.MONGO_URI_PROD
+        : process.env.MONGO_URI_DEV;
 
 export const dbConnection = (): void => {
-    mongoose.connect(process.env.MONGO_URI, {
+    mongoose.connect(DB_URI, {
         useUnifiedTopology: true,
         useNewUrlParser: true,
         useCreateIndex: true,
