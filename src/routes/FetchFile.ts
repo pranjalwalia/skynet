@@ -1,8 +1,8 @@
 import express from 'express';
-import { postFile } from '../controllers/FileOps';
+import { fetchFile } from '../controllers/FetchFile';
 
 const router = express.Router();
 
-router.post('/', postFile);
+router.get('/:uuid', fetchFile);
 
 export default router;
