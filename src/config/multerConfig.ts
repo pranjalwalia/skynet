@@ -4,7 +4,7 @@ import multer from 'multer';
 import path from 'path';
 
 export const storage: multer.StorageEngine = multer.diskStorage({
-    destination: (_req, _file, callback): void => callback(null, '../uploads/'),
+    destination: (_req, _file, callback): void => callback(null, 'uploads/'),
     filename: (_req, file, callback): void => {
         const uniqueName = `${Date.now()}-${Math.round(
             Math.random() * 100000000
@@ -15,6 +15,6 @@ export const storage: multer.StorageEngine = multer.diskStorage({
 });
 
 export const upload = multer({
-    storage: storage,
+    storage,
     limits: { fileSize: 1000000 * 100 },
-}).single('myfile');
+}).single('myfile'); //100mb

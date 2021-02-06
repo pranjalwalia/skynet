@@ -1,9 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable comma-dangle */
 import express from 'express';
-import { upload } from '../config/multerConfig';
 import { File } from '../models/File';
-
+import { upload } from '../config/multerConfig';
 const { v4: uuid4 } = require('uuid');
 
 export const postFile = (
@@ -35,7 +34,7 @@ export const postFile = (
             try {
                 //! response -> link
                 const response: any = await file.save();
-                res.json({
+                res.status(200).json({
                     file: `${process.env.APP_BASE_URL}/files/${response.uuid}`,
                 });
             } catch (err) {
