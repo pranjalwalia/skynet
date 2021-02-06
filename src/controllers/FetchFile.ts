@@ -1,5 +1,6 @@
 import express from 'express';
 import { File } from '../models/File';
+require('dotenv').config();
 
 export const fetchFile = async (
     req: express.Request,

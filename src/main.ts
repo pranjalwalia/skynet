@@ -3,6 +3,7 @@
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
+import path from 'path';
 
 import { dbConnection } from './db/connection';
 import FileRouter from './routes/FileOps';
@@ -10,6 +11,10 @@ import FetchRouter from './routes/FetchFile';
 
 require('dotenv').config();
 const app: express.Application = express();
+
+//* set view engine
+app.set('views', path.join(__dirname, '/views'));
+app.set('view engine', 'ejs');
 
 //* middleware
 app.use(cors());
