@@ -8,6 +8,7 @@ import path from 'path';
 import { dbConnection } from './db/connection';
 import FileRouter from './routes/FileOps';
 import FetchRouter from './routes/FetchFile';
+import DownloadRouter from './routes/Downloads';
 
 require('dotenv').config();
 const app: express.Application = express();
@@ -24,6 +25,7 @@ app.use(morgan('dev'));
 //* routers
 app.use('/api/files', FileRouter);
 app.use('/files', FetchRouter);
+app.use('/files/download', DownloadRouter);
 
 //* server
 dbConnection();
