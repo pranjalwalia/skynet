@@ -1,6 +1,9 @@
 import express from 'express';
 import { File } from '../models/File';
 
+//* import the service and it's corresponding types
+import { sendMail, IEmail } from '../services/EmailService';
+
 export const sendEmail = async (
     req: express.Request,
     res: express.Response,
@@ -29,10 +32,18 @@ export const sendEmail = async (
 
     //! save this updated config of the file to the db
     try {
-        const response = await file.save();
+        await file.save();
     } catch (err) {
         res.status(500).json({ error: 'Application Error' });
     }
 
     //* send email to the destination using the sevice
+    const payload: IEmail = {
+        from: source,
+        to: destination,
+        subject: 'skynet file drop',
+        text: `${source} shared a file with you..`,
+        html: '',
+    };
+    sendMail(payload);
 };
