@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/masterchief01/skynet">
-    <img src="assets-readme/cloud.png" alt="Logo" width="100" height="100">
+    <img src="assets/cloud.png" alt="Logo" width="100" height="100">
   </a>
 
   <h3 align="center">Skynet</h3>
