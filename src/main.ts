@@ -11,7 +11,7 @@ import FetchRouter from './routes/FetchFile';
 import DownloadRouter from './routes/Downloads';
 
 require('dotenv').config();
-const app: express.Application = express();
+export const app: express.Application = express();
 
 //* set view engine
 app.set('views', path.join(__dirname, '/views'));
