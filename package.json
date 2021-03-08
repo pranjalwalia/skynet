@@ -10,9 +10,9 @@
         "build": "yarn clean && prettier --write src/ && tsc",
         "clean": "rm -rf dist",
         "test": "jest",
-        "lint": "eslint src/*.js",
-        "bundle:prod": "yarn build && webpack",
-        "bundle:dev": "yarn build && webpack"
+        "lint": "eslint --ext src/*.ts",
+        "bundle:prod": "yarn build && webpack --mode=production",
+        "bundle:dev": "yarn build && webpack --mode=development"
     },
     "repository": {
         "type": "git",
