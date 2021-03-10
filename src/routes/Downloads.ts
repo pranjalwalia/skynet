@@ -1,12 +1,12 @@
 import express from 'express';
 import { downloadFile } from '../controllers/DownloadFile';
-import { sendEmail } from '../controllers/SendEmail';
+import { mailResponse } from '../controllers/SendEmail';
 
 const router = express.Router();
 
 router.get('/:uuid', downloadFile);
 
 //* invoke email service here
-router.post('/send', sendEmail);
+router.post('/send', mailResponse);
 
 export default router;

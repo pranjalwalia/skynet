@@ -19,6 +19,7 @@ app.set('view engine', 'ejs');
 
 //* middleware
 app.use(express.static('src/public'));
+app.use(express.json());
 app.use(cors());
 app.use(morgan('dev'));
 
