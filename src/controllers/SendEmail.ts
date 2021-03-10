@@ -53,4 +53,6 @@ export const mailResponse = async (
         }),
     };
     sendMail(payload);
+    //* respond back after sending
+    res.status(200).json({ success: true });
 };

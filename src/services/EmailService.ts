@@ -30,6 +30,6 @@ export const sendMail = async ({
         html: html,
     });
     if (info) {
-        console.log();
+        console.log(info);
     }
 };
