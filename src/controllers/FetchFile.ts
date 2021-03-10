@@ -17,6 +17,7 @@ export const fetchFile = async (
             });
             return;
         }
+
         res.render('download', {
             uuid: file.uuid,
             fileName: file.fileName,

@@ -18,7 +18,7 @@ app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
 
 //* middleware
-app.use(express.static('public'));
+app.use(express.static('src/public'));
 app.use(cors());
 app.use(morgan('dev'));
 

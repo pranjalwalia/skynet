@@ -1,13 +1,15 @@
-import express from 'express';
+import { Request, Response, NextFunction } from 'express';
 import { File } from '../models/File';
+import { sendMail } from '../services/EmailService';
+import { IEmail } from '../interfaces/IEmail';
+import mailTemplate from '../constants/EmailTemplate';
 
-//* import the service and it's corresponding types
-import { sendMail, IEmail } from '../services/EmailService';
+require('dotenv').config();
 
-export const sendEmail = async (
-    req: express.Request,
-    res: express.Response,
-    _next: express.NextFunction
+export const mailResponse = async (
+    req: Request,
+    res: Response,
+    _next: NextFunction
 ): Promise<void> => {
     const { uuid, destination, source } = req.body;
 
@@ -20,9 +22,9 @@ export const sendEmail = async (
 
     //! query the db and fetch the file data
     const file: any = await File.findOne({ uuid: uuid });
+
     if (file.sender) {
-        // if sender exists, means we have already sent a mail before
-        //  avoid this by returning here
+        // if sender exists => already sent a mail before
         res.status(422).json({ error: 'Email already sent' });
         return;
     }
@@ -30,7 +32,7 @@ export const sendEmail = async (
     file.sender = source;
     file.reciever = destination;
 
-    //! save this updated config of the file to the db
+    //! save updated config of file to db
     try {
         await file.save();
     } catch (err) {
@@ -43,7 +45,12 @@ export const sendEmail = async (
         to: destination,
         subject: 'skynet file drop',
         text: `${source} shared a file with you..`,
-        html: '',
+        html: mailTemplate({
+            emailFrom: source,
+            downloadLink: `${process.env.APP_BASE_URL}/file/${file.uuid}`,
+            size: parseInt((file.size / 1000).toString()) + 'Kb',
+            expires: '24 Hours',
+        }),
     };
     sendMail(payload);
 };

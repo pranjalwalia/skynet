@@ -14,7 +14,7 @@ export const downloadFile = async (
             return;
         }
 
-        const filePath: string = `${__dirname}/../${file.path}`;
+        const filePath: string = `${__dirname}/../../${file.path}`;
         res.download(filePath); //! download the file
     } catch (err) {
         res.status(500).json({ error: 'Application error !' });
