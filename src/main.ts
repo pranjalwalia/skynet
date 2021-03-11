@@ -6,9 +6,9 @@ import morgan from 'morgan';
 import path from 'path';
 
 import { dbConnection } from './db/connection';
-import FileRouter from './routes/FileOps';
-import FetchRouter from './routes/FetchFile';
-import DownloadRouter from './routes/Downloads';
+import { FileRouter } from './routes/FileOps';
+import { FetchRouter } from './routes/FetchFile';
+import { DownloadRouter } from './routes/Downloads';
 
 require('dotenv').config();
 export const app: express.Application = express();

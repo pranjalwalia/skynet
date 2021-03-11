@@ -7,4 +7,4 @@ const router = express.Router();
 router.post('/', postFile);
 router.post('/send', mailResponse);
 
-export default router;
+export { router as FileRouter };

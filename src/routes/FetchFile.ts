@@ -5,4 +5,4 @@ const router = express.Router();
 
 router.get('/:uuid', fetchFile);
 
-export default router;
+export { router as FetchRouter };

@@ -9,4 +9,4 @@ router.get('/:uuid', downloadFile);
 //* invoke email service here
 router.post('/send', mailResponse);
 
-export default router;
+export { router as DownloadRouter };
