@@ -3,6 +3,10 @@
     "version": "1.0.0",
     "description": "A simple cloud store",
     "main": "main.ts",
+    "engines": {
+        "node": ">=12.0.0",
+        "npm": ">=6.0.0"
+    },
     "scripts": {
         "start": "node ./dist/main.js",
         "dev": "nodemon -x ts-node src/main.ts",
