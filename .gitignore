@@ -3,6 +3,8 @@ dist
 yarn-error.log
 .env
 
+uploads/
+
 # Logs
 logs
 *.log
