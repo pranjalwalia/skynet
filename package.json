@@ -7,7 +7,7 @@
         "start": "node ./dist/main.js",
         "dev": "nodemon -x ts-node src/main.ts",
         "prod": "node dist/main.js",
-        "build": "yarn clean && prettier --write src/ && tsc",
+        "build": "yarn clean && prettier --write src/ && tsc && gulp postbuild",
         "clean": "rm -rf dist",
         "test": "jest",
         "lint": "eslint --ext src/*.ts",
