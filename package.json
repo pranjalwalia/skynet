@@ -9,10 +9,10 @@
     },
     "scripts": {
         "start": "node ./dist/main.js",
-        "tspath":  "tspath -f",
+        "tspath": "tspath -f",
         "dev": "nodemon -x ts-node src/main.ts",
         "prod": "node dist/main.js",
-        "build": "yarn clean && prettier --write src/ && tsc && gulp postbuild",
+        "build": "yarn clean && prettier --write src/ && yarn tspath &&  tsc && gulp postbuild",
         "clean": "rm -rf dist",
         "test": "jest",
         "lint": "eslint --ext src/*.ts",
