@@ -10,6 +10,8 @@ import { FileRouter } from './routes/fileOps';
 import { FetchRouter } from './routes/FetchFile';
 import { DownloadRouter } from './routes/Downloads';
 
+import { corsOptions } from './config/cors';
+
 require('dotenv').config();
 export const app: express.Application = express();
 
@@ -17,10 +19,10 @@ export const app: express.Application = express();
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
 
-//* middleware
+//* middlewares
 app.use(express.static('src/public'));
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(morgan('dev'));
 
 //* routers
