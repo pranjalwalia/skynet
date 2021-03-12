@@ -6,7 +6,7 @@ import morgan from 'morgan';
 import path from 'path';
 
 import { dbConnection } from './db/connection';
-import { FileRouter } from './routes/FileOps';
+import { FileRouter } from './routes/fileOps';
 import { FetchRouter } from './routes/FetchFile';
 import { DownloadRouter } from './routes/Downloads';
 
