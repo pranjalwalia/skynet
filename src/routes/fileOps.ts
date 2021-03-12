@@ -1,5 +1,5 @@
 import express from 'express';
-import { postFile } from '../controllers/FileOps';
+import { postFile } from '../controllers/fileOps';
 import { mailResponse } from '../controllers/SendEmail';
 
 const router = express.Router();
