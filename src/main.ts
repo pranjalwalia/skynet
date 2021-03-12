@@ -6,11 +6,12 @@ import morgan from 'morgan';
 import path from 'path';
 
 import { dbConnection } from './db/connection';
+import { corsOptions } from './config/cors';
+
 import { FileRouter } from './routes/fileOps';
 import { FetchRouter } from './routes/FetchFile';
 import { DownloadRouter } from './routes/Downloads';
-
-import { corsOptions } from './config/cors';
+import { healthCheck } from './routes/healthCheck';
 
 require('dotenv').config();
 export const app: express.Application = express();
@@ -26,6 +27,7 @@ app.use(cors(corsOptions));
 app.use(morgan('dev'));
 
 //* routers
+app.use('/', healthCheck);
 app.use('/api/files', FileRouter);
 app.use('/files', FetchRouter);
 app.use('/files/download', DownloadRouter);
