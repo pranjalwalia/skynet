@@ -47,7 +47,7 @@ export const mailResponse = async (
         text: `${source} shared a file with you..`,
         html: mailTemplate({
             emailFrom: source,
-            downloadLink: `${process.env.APP_BASE_URL}/file/${file.uuid}`,
+            downloadLink: `${process.env.APP_BASE_URL}/files/${file.uuid}`,
             size: parseInt((file.size / 1000).toString()) + 'Kb',
             expires: '24 Hours',
         }),
