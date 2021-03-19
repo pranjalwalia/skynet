@@ -15,12 +15,6 @@ body {
     color: #333;
 }
 
-.logo {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 150px;
-}
 section.download {
     background: #fff;
     width: 430px;
