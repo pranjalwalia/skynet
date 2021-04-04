@@ -14,7 +14,7 @@
         "prod": "node dist/main.js",
         "build": "yarn clean && prettier --write src/ && tsc --project ./tsconfig.json && gulp postbuild",
         "clean": "rm -rf dist",
-        "test": "jest",
+        "test": "jest --watch",
         "lint": "eslint --ext src/*.ts",
         "bundle:prod": "yarn build && webpack --mode=production",
         "bundle:dev": "yarn build && webpack --mode=development"
