@@ -1,7 +1,7 @@
-import { dbConnection } from './db/connection';
 import { app } from './main';
+import * as http from 'http';
 
 //* server
-dbConnection();
 const port = process.env.PORT || 3000;
-app.listen(port, (): void => console.log(`server running on port:${port}`));
+const server = http.createServer(app);
+server.listen(port, (): void => console.log(`server running on port:${port}`));

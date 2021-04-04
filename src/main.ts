@@ -32,7 +32,5 @@ app.use('/api/files', FileRouter);
 app.use('/files', FetchRouter);
 app.use('/files/download', DownloadRouter);
 
-//* server
+//* dbConnection
 dbConnection();
-const port = process.env.PORT || 3000;
-app.listen(port, (): void => console.log(`App listening on port:${port}`));

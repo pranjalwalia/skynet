@@ -6,10 +6,10 @@
     "engines": {
         "node": ">=12.0.0",
         "npm": ">=6.0.0",
-        "yarn": ">=1.22.10"
+        "yarn": ">=1.22.5"
     },
     "scripts": {
-        "start": "node ./dist/main.js",
+        "start": "node ./dist/server.js",
         "dev": "nodemon -x ts-node src/main.ts",
         "prod": "node dist/main.js",
         "build": "yarn clean && prettier --write src/ && tsc --project ./tsconfig.json && gulp postbuild",
