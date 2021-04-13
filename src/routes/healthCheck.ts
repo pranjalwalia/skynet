@@ -7,7 +7,7 @@ const healthCheck = (
     res: express.Response,
     _next: express.NextFunction
 ): void => {
-    res.json({ alive: 'true' });
+    res.status(200).json({ alive: 'true' });
 };
 
 router.get('/', healthCheck);

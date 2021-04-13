@@ -5,7 +5,6 @@ import cors from 'cors';
 import morgan from 'morgan';
 import path from 'path';
 
-import { dbConnection } from './db/connection';
 import { corsOptions } from './config/cors';
 
 import { FileRouter } from './routes/fileOps';
@@ -31,6 +30,3 @@ app.use('/', healthCheck);
 app.use('/api/files', FileRouter);
 app.use('/files', FetchRouter);
 app.use('/files/download', DownloadRouter);
-
-//* dbConnection
-dbConnection();

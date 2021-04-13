@@ -1,5 +1,9 @@
 import { app } from './main';
 import * as http from 'http';
+import { dbConnection } from './db/connection';
+
+//* dbConnection
+dbConnection();
 
 //* server
 const port = process.env.PORT || 3000;
