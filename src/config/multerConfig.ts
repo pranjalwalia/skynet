@@ -9,12 +9,11 @@ export const storage: multer.StorageEngine = multer.diskStorage({
         const uniqueName = `${Date.now()}-${Math.round(
             Math.random() * 100000000
         )}${path.extname(file.originalname)}`;
-
         callback(null, uniqueName);
     },
 });
 
-export const upload = multer({
+export const multiPartFormHandler = multer({
     storage,
-    limits: { fileSize: 1000000 * 100 },
-}).single('myfile'); //100mb
+    limits: { fileSize: 1000000 * 100 }, //100mb
+}).single('myfile'); // multipart form field

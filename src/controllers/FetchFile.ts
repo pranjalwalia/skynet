@@ -1,11 +1,11 @@
-import express from 'express';
+import { Request, Response, NextFunction } from 'express';
 import { File } from '../models/File';
 require('dotenv').config();
 
 export const fetchFile = async (
-    req: express.Request,
-    res: express.Response,
-    _next: express.NextFunction
+    req: Request,
+    res: Response,
+    _next: NextFunction
 ): Promise<void> => {
     try {
         const file: any = await File.findOne({ uuid: req.params.uuid });

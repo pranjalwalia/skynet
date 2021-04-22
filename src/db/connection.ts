@@ -17,6 +17,7 @@ export const dbConnection = (): void => {
 
     const db = mongoose.connection;
 
+    //* mongoose connection events
     db.on('open', (): void => console.log('Mongo connection Success!!'))
         .on('close', (): void => console.log('Disconnected from Mongo..'))
         .on('error', (err): void => console.log(err));
