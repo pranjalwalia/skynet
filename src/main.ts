@@ -23,7 +23,22 @@ app.use(cors(corsOptions));
 app.use(morgan('dev'));
 
 //* routers
+/**
+ * @description just PaaS things :)
+ * **/
 app.use('/', healthCheck);
+
+/**
+ * @description dispatch/upload operations
+ * **/
 app.use('/api/files', FileRouter);
+
+/**
+ * @description dispatch/upload operations
+ * **/
 app.use('/files', FetchRouter);
+
+/**
+ * @description dispatch/upload operations
+ * **/
 app.use('/files/download', DownloadRouter);

@@ -4,9 +4,20 @@ import { mailResponse } from '../controllers/SendEmail';
 
 const router = express.Router();
 
+/**
+ * @route   GET /files/download/:uuid
+ * @desc    render download template
+ * @access  public
+ *
+ * **/
 router.get('/:uuid', downloadFile);
 
-//* invoke email service here
+/**
+ * @route   POST /files/download/send
+ * @desc    Dispatch via mail service
+ * @access  public
+ * @description invoke email service here
+ * **/
 router.post('/send', mailResponse);
 
 export { router as DownloadRouter };
