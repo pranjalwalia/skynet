@@ -13,7 +13,7 @@
 <!--     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a> -->
     <br />
     <br />
-    <a href="https://github.com/masterchief01/skynet">View Demo</a>
+    <a href="https://youtu.be/IgIyVnV1ziE">View Demo</a>
     ·
     <a href="https://github.com/masterchief01/skynet/issues">Report Bug</a>
     ·
