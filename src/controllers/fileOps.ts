@@ -33,7 +33,7 @@ export const postFile = (req: Request, res: Response, _next: NextFunction) => {
 
             try {
                 const response: any = await file.save();
-                res.status(200).json({
+                res.status(201).json({
                     file: `${process.env.APP_BASE_URL}/files/${response.uuid}`,
                     //* http://localhost/files/2343402-12323.ext
                 });

@@ -10,7 +10,7 @@ export const fetchFiles = async (): Promise<void> => {
 
     //* fetch files older than 24 hours
     const files: Array<any> = await File.find({
-        createdAt: { $lt: pastDate },
+        createdAt: { $lt: pastDate }, // select doc with createdAt < pastDate
     });
 
     //* delete them in order
