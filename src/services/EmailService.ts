@@ -22,6 +22,7 @@ export const sendMail = async ({
         },
     });
 
+    //* fetch relay response
     const info: Promise<void> = await transport.sendMail({
         from: `Skynet <${from}>`,
         to: to,

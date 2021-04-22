@@ -13,18 +13,22 @@ export const mailResponse = async (
 ): Promise<void> => {
     const { uuid, destination, source } = req.body;
 
+    //* validation
     if (!uuid || !destination || !source) {
-        //* HTTP: 422 => validation error
+        //* 422 unprocessible entity
         res.status(422).json({ error: 'All fields are required' });
         return;
     }
 
     try {
-        //! query the db and fetch the file data
+        //* fetch target file
         const file: any = await File.findOne({ uuid: uuid });
 
         if (file.sender) {
-            // if sender exists => already sent a mail before
+            /**
+             * set the sender, reciever on file and save it back
+             * if either is already set => mailed earlier
+             * **/
             res.status(422).json({ error: 'Email already sent' });
             return;
         }
@@ -32,14 +36,15 @@ export const mailResponse = async (
         file.sender = source;
         file.reciever = destination;
 
-        //! save updated config of file to db
+        //* writeback updated file
         try {
             await file.save();
         } catch (err) {
             res.status(500).json({ error: 'Internal Server Error' });
         }
 
-        //* send email to the destination using the sevice
+        //* Invoke mail service
+        //* embedd payload into html
         const payload: IEmail = {
             from: source,
             to: destination,
@@ -52,8 +57,10 @@ export const mailResponse = async (
                 expires: '24 Hours',
             }),
         };
+
+        //* sends and logs mail service response
+        //* critical step
         sendMail(payload);
-        //* respond back after sending
         res.status(200).json({ success: true });
     } catch (err) {
         res.status(500).json({ message: 'Internal Server Error' });

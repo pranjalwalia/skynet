@@ -10,7 +10,7 @@
     },
     "scripts": {
         "start": "node ./dist/server.js",
-        "dev": "nodemon -x ts-node src/main.ts",
+        "dev": "nodemon -x ts-node ./src/server",
         "prod": "node dist/main.js",
         "build": "yarn clean && prettier --write src/ && tsc --project ./tsconfig.json && gulp postbuild",
         "clean": "rm -rf dist",

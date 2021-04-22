@@ -29,16 +29,16 @@ app.use(morgan('dev'));
 app.use('/', healthCheck);
 
 /**
- * @description dispatch/upload operations
+ * @description file upload operations
  * **/
 app.use('/api/files', FileRouter);
 
 /**
- * @description dispatch/upload operations
+ * @description download page with dispatch file
  * **/
 app.use('/files', FetchRouter);
 
 /**
- * @description dispatch/upload operations
+ * @description file is dispatched from server
  * **/
 app.use('/files/download', DownloadRouter);
