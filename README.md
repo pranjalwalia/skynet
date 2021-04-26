@@ -13,7 +13,7 @@
 <!--     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a> -->
     <br />
     <br />
-    <a href="https://youtu.be/IgIyVnV1ziE">View Demo</a>
+    <a href=>View Demo</a>
     ·
     <a href="https://github.com/masterchief01/skynet/issues">Report Bug</a>
     ·
@@ -22,6 +22,6 @@
 </p>
 
 <p align="left"> 
-Built on top of express,  
+Built on top of Express,  
 
 </p>
