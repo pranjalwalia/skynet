@@ -1,1 +1,2 @@
-const ref = Service Provider class; export default ref;
+const ref = 'Service Provider class';
+export default ref;
