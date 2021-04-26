@@ -1,8 +1,8 @@
 export class Shortner{
 
 	constructor(store, user){
-		this.store = _store;
-		this.user = _user;
+		this._store = store;
+		this._user = user;
 	};
 
 	
