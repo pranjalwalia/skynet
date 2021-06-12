@@ -3,7 +3,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { File } from '../models/File';
 import { multiPartFormHandler } from '../config/multerConfig';
-const { v4: uuid4 } = require('uuid');
+import { v4 as uuid4 } from 'uuid';
 
 export const postFile = (req: Request, res: Response, _next: NextFunction) => {
     multiPartFormHandler(

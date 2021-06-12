@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "85cd9180-7275-48bf-a60e-6f75032013d2",
+		"name": "Skynet Samples",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST: File Upload Endpoint",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "myfile",
+							"type": "file",
+							"src": "/home/pranjal/Pictures/nPxMw4m.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/files",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"files"
+					]
+				},
+				"description": "## POST: `/api/files`\n## Access: `PUBLIC`\n## PAYLOAD: \n- `myFile`: File to upload via multer multipart form parser \n\n## Headers:\n- `Content-Type: multipart/form-data`\n\n## DESCRIPTION:\n- Default endpoint for file upload \n- FrontEnd makes a request to send multipart form data \n- multipart form accepts field `myfile` only for upload"
+			},
+			"response": []
+		},
+		{
+			"name": "Fetchrouter GET file",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/files/5aa78d9e-ba5a-408e-ad79-73a61c960fe5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"files",
+						"5aa78d9e-ba5a-408e-ad79-73a61c960fe5"
+					]
+				},
+				"description": "## GET: `/files/{ID}`\n## params\n- `ID`: query the db by ID assigned to file \n\n## Access: `PUBLIC`\n## Headers:\n- `Content-Type: application/json`\n\n## DESCRIPTION:\n- fetch file from the host \n- file uuid serves as query param"
+			},
+			"response": []
+		},
+		{
+			"name": "POST: Invoke Email Service",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"uuid\" : \"5a828d48-2610-413b-8b3c-d53743be10be\",\n    \"destination\" : \"pranjalwalia77@gmail.com\",\n    \"source\" : \"pranjalwaliagamingfefefee@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/files/send",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"files",
+						"send"
+					]
+				},
+				"description": "## POST: `/api/files/send`\n## Access: `PUBLIC`\n## Headers: `Content-Type: application/json`\n## PAYLOAD\n- `uuid`: ID of the file as stored in mongo, fetches the download link\n- `destination`: download link reciever's email\n- `source`: file senders email\n\n### Description\n- Invokes sendInBlue via nodemailer \n- Invoked client side"
+			},
+			"response": []
+		}
+	]
+}
