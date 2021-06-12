@@ -24,11 +24,12 @@ export const mailResponse = async (
         //* fetch target file
         const file: any = await File.findOne({ uuid: uuid });
 
+        /**
+         * set the sender, reciever on file and save it back
+         * if either is already set => mailed earlier
+         * spamming the send button wont work :)
+         * **/
         if (file.sender) {
-            /**
-             * set the sender, reciever on file and save it back
-             * if either is already set => mailed earlier
-             * **/
             res.status(422).json({ error: 'Email already sent' });
             return;
         }
